@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<!DOCTYPE map
+  PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Map Version 1.0//EN"
+         "http://java.sun.com/products/javahelp/map_1_0.dtd">
+
+<map version="1.0">
+
+	<mapID target="introduccion"  	url="Fuentes/Introducción.html" />
+	<mapID target="administrador"  	url="Fuentes/Administrador.html" />
+	<mapID target="rrhh"  			url="Fuentes/RRHH.html" />
+	<mapID target="trabajador"  	url="Fuentes/Trabajador.html" />
+	<mapID target="gerente"  		url="Fuentes/Gerente.html" />
+	<mapID target="automatico"  	url="Fuentes/Automático.html" />
+	<mapID target="general"  		url="Fuentes/General.html" />
+	<mapID target="especifico"  	url="Fuentes/Específico.html" />
+	<mapID target="documentacion"  	url="Fuentes/Listas/Documentación.html" />
+	<mapID target="documentacionT"  url="Fuentes/Listas/DocumentaciónT.html" />
+	<mapID target="campos"  		url="Fuentes/Listas/Campos.html" />
+	<mapID target="indicadores"  	url="Fuentes/Listas/Indicadores.html" />
+	<mapID target="generadores"  	url="Fuentes/Listas/Generadores.html" />
+	<mapID target="autorizados"  	url="Fuentes/Listas/Autorizados.html" />
+	<mapID target="visor"  			url="Fuentes/Visor.html" />
+
+</map>

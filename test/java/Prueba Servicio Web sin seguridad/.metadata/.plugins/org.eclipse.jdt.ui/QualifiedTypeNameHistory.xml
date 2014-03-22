@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.ws.servidor.TestStub.Info"/>
+<fullyQualifiedTypeName name="com.ws.servidor.TestStub.Registro"/>
+<fullyQualifiedTypeName name="java.rmi.RemoteException"/>
+<fullyQualifiedTypeName name="com.ws.servidor.TestStub.InfoRegistroResponse"/>
+<fullyQualifiedTypeName name="com.ws.servidor.TestStub.InfoRegistro"/>
+<fullyQualifiedTypeName name="org.junit.Before"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project name="Test" resourceRoot="" soapui-version="4.0.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="TestSoap11Binding" type="wsdl" bindingName="{http://servidor.ws.com}TestSoap11Binding" soapVersion="1_1" anonymous="optional" definition="file:/C:/Users/Jose/Desktop/prueba/Prueba%20Servicio%20Web/TestCliente/Test.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache/><con:endpoints><con:endpoint>http://localhost:8080/axis2/services/Test.TestHttpSoap11Endpoint/</con:endpoint><con:endpoint>https://localhost:8443/axis2/services/Test.TestHttpsSoap11Endpoint/</con:endpoint></con:endpoints><con:operation isOneWay="false" action="urn:info" name="info" bindingOperationName="info" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/axis2/services/Test.TestHttpSoap11Endpoint/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://servidor.ws.com" xmlns:xsd="http://servidor.ws.com/xsd">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:info>
+         <!--Optional:-->
+         <ser:r>
+            <!--Optional:-->
+            <xsd:descripcion>La vida de Baal Zebub</xsd:descripcion>
+            <!--Optional:-->
+            <xsd:id>666</xsd:id>
+            <!--Optional:-->
+            <xsd:persona>Abraracurcix</xsd:persona>
+         </ser:r>
+      </ser:info>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:info"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="urn:infoRegistro" name="infoRegistro" bindingOperationName="infoRegistro" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/axis2/services/Test.TestHttpSoap11Endpoint/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://servidor.ws.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:infoRegistro>
+         <!--Optional:-->
+         <ser:id>666</ser:id>
+      </ser:infoRegistro>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:infoRegistro"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="TestSoap12Binding" type="wsdl" bindingName="{http://servidor.ws.com}TestSoap12Binding" soapVersion="1_2" anonymous="optional" definition="file:/C:/Users/Jose/Desktop/prueba/Prueba%20Servicio%20Web/TestCliente/Test.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/C:/Users/Jose/Desktop/prueba/Prueba%20Servicio%20Web/TestCliente/Test.wsdl"><con:part><con:url>file:/C:/Users/Jose/Desktop/prueba/Prueba%20Servicio%20Web/TestCliente/Test.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://servidor.ws.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:ns="http://servidor.ws.com" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ax23="http://servidor.ws.com/xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://servidor.ws.com" xmlns:ax24="http://servidor.ws.com/xsd">
+      <xs:import namespace="http://servidor.ws.com/xsd"/>
+      <xs:element name="infoRegistro">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="id" nillable="true" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="infoRegistroResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="ax24:Registro"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="info">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="r" nillable="true" type="ax24:Registro"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="infoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://servidor.ws.com/xsd">
+      <xs:complexType name="Registro">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="descripcion" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="id" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="persona" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="infoRegistroRequest">
+    <wsdl:part name="parameters" element="ns:infoRegistro"/>
+  </wsdl:message>
+  <wsdl:message name="infoRegistroResponse">
+    <wsdl:part name="parameters" element="ns:infoRegistroResponse"/>
+  </wsdl:message>
+  <wsdl:message name="infoRequest">
+    <wsdl:part name="parameters" element="ns:info"/>
+  </wsdl:message>
+  <wsdl:message name="infoResponse">
+    <wsdl:part name="parameters" element="ns:infoResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="TestPortType">
+    <wsdl:operation name="infoRegistro">
+      <wsdl:input message="ns:infoRegistroRequest" wsaw:Action="urn:infoRegistro"/>
+      <wsdl:output message="ns:infoRegistroResponse" wsaw:Action="urn:infoRegistroResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="info">
+      <wsdl:input message="ns:infoRequest" wsaw:Action="urn:info"/>
+      <wsdl:output message="ns:infoResponse" wsaw:Action="urn:infoResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TestSoap11Binding" type="ns:TestPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <wsdl:operation name="infoRegistro">
+      <soap:operation soapAction="urn:infoRegistro" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="info">
+      <soap:operation soapAction="urn:info" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TestSoap12Binding" type="ns:TestPortType">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <wsdl:operation name="infoRegistro">
+      <soap12:operation soapAction="urn:infoRegistro" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="info">
+      <soap12:operation soapAction="urn:info" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TestHttpBinding" type="ns:TestPortType">
+    <http:binding verb="POST"/>
+    <wsdl:operation name="infoRegistro">
+      <http:operation location="Test/infoRegistro"/>
+      <wsdl:input>
+        <mime:content type="text/xml" part="infoRegistro"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content type="text/xml" part="infoRegistro"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="info">
+      <http:operation location="Test/info"/>
+      <wsdl:input>
+        <mime:content type="text/xml" part="info"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content type="text/xml" part="info"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Test">
+    <wsdl:port name="TestHttpSoap11Endpoint" binding="ns:TestSoap11Binding">
+      <soap:address location="http://localhost:8080/axis2/services/Test.TestHttpSoap11Endpoint/"/>
+    </wsdl:port>
+    <wsdl:port name="TestHttpsSoap11Endpoint" binding="ns:TestSoap11Binding">
+      <soap:address location="https://localhost:8443/axis2/services/Test.TestHttpsSoap11Endpoint/"/>
+    </wsdl:port>
+    <wsdl:port name="TestHttpSoap12Endpoint" binding="ns:TestSoap12Binding">
+      <soap12:address location="http://localhost:8080/axis2/services/Test.TestHttpSoap12Endpoint/"/>
+    </wsdl:port>
+    <wsdl:port name="TestHttpsSoap12Endpoint" binding="ns:TestSoap12Binding">
+      <soap12:address location="https://localhost:8443/axis2/services/Test.TestHttpsSoap12Endpoint/"/>
+    </wsdl:port>
+    <wsdl:port name="TestHttpEndpoint" binding="ns:TestHttpBinding">
+      <http:address location="http://localhost:8080/axis2/services/Test.TestHttpEndpoint/"/>
+    </wsdl:port>
+    <wsdl:port name="TestHttpsEndpoint" binding="ns:TestHttpBinding">
+      <http:address location="https://localhost:8443/axis2/services/Test.TestHttpsEndpoint/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://localhost:8443/axis2/services/Test.TestHttpsSoap12Endpoint/</con:endpoint><con:endpoint>http://localhost:8080/axis2/services/Test.TestHttpSoap12Endpoint/</con:endpoint></con:endpoints><con:operation isOneWay="false" action="urn:info" name="info" bindingOperationName="info" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://localhost:8443/axis2/services/Test.TestHttpsSoap12Endpoint/</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="http://servidor.ws.com" xmlns:xsd="http://servidor.ws.com/xsd">
+   <soap:Header/>
+   <soap:Body>
+      <ser:info>
+         <!--Optional:-->
+         <ser:r>
+            <!--Optional:-->
+            <xsd:descripcion>?</xsd:descripcion>
+            <!--Optional:-->
+            <xsd:id>?</xsd:id>
+            <!--Optional:-->
+            <xsd:persona>?</xsd:persona>
+         </ser:r>
+      </ser:info>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:info"/></con:call></con:operation><con:operation isOneWay="false" action="urn:infoRegistro" name="infoRegistro" bindingOperationName="infoRegistro" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://localhost:8443/axis2/services/Test.TestHttpsSoap12Endpoint/</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ser="http://servidor.ws.com">
+   <soap:Header/>
+   <soap:Body>
+      <ser:infoRegistro>
+         <!--Optional:-->
+         <ser:id>?</ser:id>
+      </ser:infoRegistro>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:infoRegistro"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/></con:soapui-project>

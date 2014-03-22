@@ -1,0 +1,74 @@
+<HTML>
+
+	<HEAD>
+		<TITLE> Introducción al Sistema de Registro </TITLE>
+	</HEAD>
+
+	<BODY>
+		<H1> <FONT Color=blue>Sistema de Registro</Font> </H1>
+
+		<P> Está aplicación, llamada <B>Sistema de Registro de Eventos de Procesos Empresariales</B> permite dar soporte a la trazabilidad de procesos, tanto de los que dan lugar a productos tangibles como intangibles. </P>
+
+		<P> El programa comienza con la pantalla de bienvenida al usuario, dándole a elegir las opciones: 
+			<UL>
+				<LI> <A HREF="#proce"> <I>Administrador de Procesos</I></A>
+				<LI> <A HREF="#apli"> <I>Aplicación</I></A>
+				<LI> <A HREF="#auto"> <I>Crear Registros Automáticos</I></A>				
+				<LI> <A HREF="#salir"> <I>Salir</I></A>
+			</UL>
+			
+		</P><BR>
+			
+		<IMG SRC="../Img/Pantallas/Principal.png"/>
+			
+		<H2> <A NAME="proce">Administrador de Procesos</A> </H2>	
+			
+		<P> Para que aparezcan los elementos para la introducción del nombre de usuario y la contraseña, se debe teclear una secuencia de teclas. </P><BR> 
+		
+		<IMG SRC="../Img/Pantallas/Admin/Admin1.png"/>
+			
+		<P> Una vez, introducido el usuario y la contraseña se enviarán al Servidor, para confirmar que existe ese cuenta administrador asociada a esa contraseña 
+		en la BBDD, sino es así, se producirá un error, también para mandar los datos del usuario y contraseña, se necesita saber una secuencia de teclas. </P><BR>
+		
+		<IMG SRC="../Img/Pantallas/Admin/Admin2.png"/>
+			
+		<H2> <A NAME="apli">Aplicación</A> </H2>	
+			
+		<P> Una vez, introducido el usuario y la contraseña en sus campos correspondientes, se enviarán al Servidor, para confirmar que existen esos usuarios asociados 
+		con esas contraseñas en la BBDD, una vez confirmados los datos se enviara al usuario a la pantalla correspondiente del usuario introducido. </P><BR>
+		
+		<IMG SRC="../Img/Pantallas/Aplica.png"/>
+			
+		<H2> <A NAME="auto">Crear Registros Automáticos</A> </H2>	
+			
+		<P> La última opción disponible, es la de crear automáticamente los registros, tanto los que debe generar el <A HREF="#proce"> <I>Administrador de Procesos</I> </A>
+			como los de la <A HREF="#apli"><I>Aplicación</I></A>. </P>
+			
+		<P> Simula la creación de los procesos sigueintes: </P>
+		
+			<UL>
+				<LI> Administrador de Procesos 
+				<UL>
+					<LI> <A HREF="Administrador.html"><B>Administrador</B></A>
+				</UL>
+				
+				<LI> Aplicación 
+				<UL>
+					<LI> <A HREF="RRHH.html"><B>RRHH</B></A>
+					<LI> <A HREF="Trabajador.html"><B>Trabajador</B></A><A HREF="#nota1"><sup>*</sup></A> 
+					<LI> <A HREF="Gerente.html"><B>Gerente</B></A>
+				</UL>
+			</UL>
+			
+		<IMG SRC="../Img/Pantallas/Automático/Pantalla.png"/>
+			
+		<H2> <A NAME="salir">Salir</A> </H2>	
+			<P>El botón salir termina con la aplicación.</P>
+			
+		<BR><HR>
+		<A NAME="nota1">*</A> El usuario y la contraseña serán asignados por la persona de RRHH.
+		
+	</BODY>
+
+
+</HTML>

@@ -1,0 +1,203 @@
+<HTML>
+
+	<HEAD>
+			<TITLE> Pantalla Información General </TITLE>
+	</HEAD>
+
+	<BODY>
+		<H1> <FONT Color=blue> Registro General </Font> </H1>
+
+		<P> Está pantalla consta de dos pestañas, una de ellas muestra la información <I>"General"</I> del Proceso, dividida en varias partes:</P>
+
+		
+		<table border = "1">
+		<CAPTION> <B>Proceso General</B> </CAPTION>
+			<tr>
+				<th>Nombre</th>
+					<td>Descripción corta del Proceso.</td>
+			</tr>
+			
+			<tr>
+				<th>Código General</th>
+					<td>
+						<P> Cada proceso tiene un código de identificación general, este código es idéntico para todos los procesos de este mismo tipo. <BR>
+							El código del proceso identifica la familia de procesos del mismo tipo y que se generan ante un mismo evento.  <BR><BR>
+							El código estará formado por:<BR>
+							<B><I>Cód. Procedimiento + código correlativo de proceso dentro de procedimiento</I></B>
+						</P>
+					</td>
+			</tr>
+	
+			<tr>
+				<th>Descripción</th>
+				<td>Descripción detallada, indicando el momento y el evento o eventos que provocan la creación del proceso.</td>
+			</tr>
+			
+			<tr>
+				<th>Tipo</th>
+					<td>
+						<P> Dos tipos:
+						<UL>
+							<LI> E- Proceso electrónico
+							<LI> P- Proceso en papel
+						</UL>
+						</P>
+					</td>
+			</tr>
+			
+			<tr>
+				<th>Código del Procedimiento</th>
+					<td>
+						<P> Código del procedimiento al que pertenece el proceso o al procedimiento en que se genera. </P>
+					</td>
+			</tr>
+	
+			<tr>
+				<th>Actividad</th>
+				<td>Actividad del proceso donde se realiza el proceso (Ejemplo: Actividad 6 del Procedimiento “Comprobación del Plan de Acogida”).</td>
+			</tr>
+			
+			<tr>
+				<th>Documentación Vinculada</th>
+					<td>
+						<P> Lista de documentos (físicos o digitales) relacionados con el proceso .</P>
+						<OL TYPE = a>
+							<LI> Código de documento o enlace al mismo si es digital
+							<LI> Tipo y descripción del tipo de documento
+						</OL>
+						
+						<P>Si la lista de documentos es fija, la descripción de los mismos [b)] iría a este nivel,<BR> 
+						si depende de los datos que se generan en el evento en que se produce el proceso, irán en el atributo [3] del proceso especifico.</P>
+						
+						<P>Nota:<BR>
+							Recomendamos todos los procesos digitales. Y si el proceso es papel, se genera un proceso digital que referencia al de documento.
+						</P>
+					</td>
+			</tr>
+			
+			<tr>
+				<th>Lista campos</th>
+					<td>
+						<P>Lista y tipo de los campos que van a tomarse en el proceso especifico.
+						<UL>
+							<LI> Nombre (TemperaturaAmbiente)
+							<LI> Descripción (Temperatura ambiente  del vehículo)
+							<LI> Tipo (número con dos decimales)
+							<LI> Unidad (grados Celsius)
+						</UL>	
+						
+						Puede ser que sólo se guarde la referencia a la documentación asociada, pero normalmente sería interesante guardar información resumen<BR> 
+						de la documentación (siempre que sea factible generar esta información automáticamente).</P>
+					</td>
+			</tr>
+	
+			<tr>
+				<th>Frecuencia</th>
+				<td>Frecuencia de la toma del proceso (Ejemplo: cada hora, cada vez que ocurra un evento, …).</td>
+			</tr>
+			
+			<tr>
+				<th>Método</th>
+					<td>Método de captura del proceso y/o de la información adicional al proceso (Ejemplo: por formulario, por sonda de temperatura,<BR>
+					pistola de código de barras, mezcla de varios métodos, … ).</td>
+			</tr>
+			
+			<tr>
+				<th>Lista Indicadores</th>
+					<td>
+						<P>Indicadores a aplicar al proceso (Ejemplo: tiempo entre procesos, media de  temperatura registrada,…). </P>
+					</td>
+			</tr>
+	
+			<tr>
+				<th>Generador del Proceso</th>
+				<td>
+					<P> Persona o empresa externa o sistema que genera el proceso. </P>
+					<P> Esta información podría estar a nivel de proceso específico si puede variar el agente que genera el proceso [4]. <BR> 
+					 Lo habitual es que sea siempre el generador de proceso sea siempre mismo y este a este nivel. </P>
+				</td>
+			</tr>
+			
+			<tr>
+				<th>Autorizados para su consulta</th>
+				<td>
+					<P> Persona, empresa externa o sistema autorizados para la consulta del proceso. </P>
+					<P>Esta información podría estar a nivel de proceso específico si puede variar el/los agente/s que consulta/n el proceso [5]. <BR> 
+					Lo habitual es que sea siempre el mismo y este a este nivel. </P>
+				</td>
+			</tr>
+		</table>
+
+		
+		<P> Y la otra pestaña, se accede a ella pulsando en el botón <I>"Siguiente"</I> y muestra el <I>Ciclo de Vida</I> del proceso</P>
+
+		
+		<table border = "1">
+			<CAPTION> <B>Proceso Ciclo de Vida</B> </CAPTION>
+			<tr>
+				<th>Archivo</th>
+				<td>Se considera “Archivo” a la ubicación  donde se guardan los procesos activos.<BR><BR> 
+					Todos los procesos de calidad deberán ser archivados física o electrónica mediante un método que mejore la accesibilidad<BR> 
+					y la recuperación para un usuario. Si se utilizan archivos electrónicos, se deben implementar algún sistema de copia de seguridad<BR>
+					u otras medidas adecuadas para evitar la pérdida de los procesos.<BR><BR> 
+					Los procedimientos deberán definir la ubicación donde los procesos de la Calidad se guarden. </td>
+			</tr>
+			
+			<tr>
+				<th>Retención</th>
+					<td> El tiempo de “retención” de un proceso de calidad se refiere a cuánto tiempo debe ser mantenido hasta que es descartado o destruido,<BR> 
+						o enviado a un almacén de larga duración. Los procesos podrían ser retenidos por más tiempo del mínimo por conveniencia de la<BR> 
+						organización.<BR><BR>
+						Los tiempos de retención para los procesos de calidad específicos de la organización deben ser determinados  por la propia organización y<BR>
+						recogidos en los documentos del Sistema de Calidad.<BR><BR>
+						Puede haber reglas generales de retención o especificas (Ejemplo: proceso almacenado hasta que se jubile un conductor + un periodo<BR>
+						adicional de 5 años).</td>
+			</tr>
+			
+			<tr>
+				<th>Conservación</th>
+					<td>Todos los procesos de calidad deberán ser archivados y almacenados en el entorno de la oficina a menos que se especifiquen medios<BR> 
+						concretos y/o controles especiales del entorno para prevenir daños, deterioro o pérdida, siempre que se trate de documentación física.<BR><BR> 
+						Y si se almacena de manera digitalizada, se establecerán los mecanismos para la conservación y consulta del mismo.</td>
+			</tr>
+	
+			<tr>
+				<th>Disposición</th>
+				<td>Procedimientos definirán como los procesos de calidad serán dispuestos cuando se exceda el tiempo de retención.<BR><BR> 
+					La disposición podrá ser descartar o destruir los procesos de calidad, o contactar con la Oficina de Gestión de procesos para recibir<BR> 
+					instrucciones para el almacenamiento de larga duración.</td>
+			</tr>
+			
+			<tr>
+				<th>Almacén</th>
+				<td>Después del periodo de retención in-situ, todos los procesos de calidad deberán ser almacenados de forma indefinida según lo defina<BR> 
+					el Responsable de Gestión de procesos.</td>
+			</tr>
+		</table>
+	
+		
+		<P> Existe al final un CheckBox con la etiqueta <I>"Versión Modificada"</I>, que se activara automáticamente cuando el proceso sea traído del <I>Servidor</I>,<BR>
+			para ser cambiado.<BR><BR>
+			Finalmente para mandar el proceso con los datos a almacenar a la <I>BBDD</I> del <I>Servidor</I>, se oprimirá el botón <I>"Enviar"</I>,<BR> 
+			también existe otro botón para ir hacia la parte de la <I>Información General</I>, el boton <I>"Atras"</I>.</P>
+		
+			
+			
+		<BR><HR>
+		<table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tbody>
+				<tr>
+					<td class="siganterior" width="1"><a href="Introducción.html"><img src="../Img/Home.png" border="0"></a></td>
+					<td class="siganterior" width="50%"><b>Ir a</b> <A href="Introducción.html"><B>Inicio</B></A></td>
+					
+					<td width="8"></td>
+					
+					<td class="siganterior" align="right" width="50%"><b>Ir a</b> <A href="Específico.html"><B>Específico</B></A></td>
+					<td width="1"><a href="Específico.html"><img src="../Img/Adelante.png" border="0"></a></td>
+				</tr>
+			</tbody>
+		</table>	
+	</BODY>
+
+
+</HTML>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service>  
+    <description>Test de un servicio que hace uso de Java Bean</description>  
+    <messageReceivers>  
+        <messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"  
+            class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />  
+    </messageReceivers>  
+    <parameter name="ServiceClass">com.ws.servidor.Servicio</parameter>  
+    <operation name="info" mep="http://www.w3.org/2004/08/wsdl/in-out" />  
+    <operation name="infoRegistro" mep="http://www.w3.org/2004/08/wsdl/in-out" />  
+</service>

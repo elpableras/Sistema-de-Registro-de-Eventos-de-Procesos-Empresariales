@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:ns="http://servidor.ws.com" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ax21="http://base_de_datos/xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://servidor.ws.com">
+    <wsdl:types>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://base_de_datos/xsd">
+            <xs:complexType name="RegistroServidor">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="cod" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="correo" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="edad" type="xs:int"/>
+                    <xs:element minOccurs="0" name="nombre" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="url" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema xmlns:ax22="http://base_de_datos/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://servidor.ws.com">
+            <xs:import namespace="http://base_de_datos/xsd"/>
+            <xs:element name="registro">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="rs" nillable="true" type="ax22:RegistroServidor"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="registroResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="registroRequest">
+        <wsdl:part name="parameters" element="ns:registro"/>
+    </wsdl:message>
+    <wsdl:message name="registroResponse">
+        <wsdl:part name="parameters" element="ns:registroResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="ServicioRegistroPortType">
+        <wsdl:operation name="registro">
+            <wsdl:input message="ns:registroRequest" wsaw:Action="urn:registro"/>
+            <wsdl:output message="ns:registroResponse" wsaw:Action="urn:registroResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="ServicioRegistroSoap11Binding" type="ns:ServicioRegistroPortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="registro">
+            <soap:operation soapAction="urn:registro" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="ServicioRegistroSoap12Binding" type="ns:ServicioRegistroPortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="registro">
+            <soap12:operation soapAction="urn:registro" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="ServicioRegistroHttpBinding" type="ns:ServicioRegistroPortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="registro">
+            <http:operation location="ServicioRegistro/registro"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="registro"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="registro"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="ServicioRegistro">
+        <wsdl:port name="ServicioRegistroHttpSoap11Endpoint" binding="ns:ServicioRegistroSoap11Binding">
+            <soap:address location="http://localhost:8080/axis2/services/ServicioRegistro.ServicioRegistroHttpSoap11Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="ServicioRegistroHttpSoap12Endpoint" binding="ns:ServicioRegistroSoap12Binding">
+            <soap12:address location="http://localhost:8080/axis2/services/ServicioRegistro.ServicioRegistroHttpSoap12Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="ServicioRegistroHttpEndpoint" binding="ns:ServicioRegistroHttpBinding">
+            <http:address location="http://localhost:8080/axis2/services/ServicioRegistro.ServicioRegistroHttpEndpoint/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

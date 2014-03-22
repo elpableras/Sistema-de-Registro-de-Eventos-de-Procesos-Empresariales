@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testResults version="1.2">
+<sample t="23" it="0" lt="23" ts="1332719981011" s="false" lb="set" rc="08S01 0" rm="com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException: Cannot connect to MySQL server on localhost:3306.
+
+Make sure that there is a MySQL server running on the machine/port you are trying to connect to and that the machine this software is running on is able to connect to this host/port (i.e. not firewalled). Also make sure that the server has not been started with the --skip-networking flag.
+
+" tn="BBDD 1-1" dt="text" de="UTF-8" by="0" sc="1" ec="1" ng="1" na="1" hn="Wuera">
+  <responseHeader class="java.lang.String"></responseHeader>
+  <requestHeader class="java.lang.String"></requestHeader>
+  <responseData class="java.lang.String"></responseData>
+  <responseFile class="java.lang.String"></responseFile>
+  <samplerData class="java.lang.String">[Prepared Update Statement] INSERT INTO test (registro_id, n_listas) VALUES (?,?)
+897,897
+INTEGER,INTEGER</samplerData>
+</sample>
+<sample t="25" it="0" lt="24" ts="1332719981066" s="false" lb="get" rc="08S01 0" rm="com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException: Cannot connect to MySQL server on localhost:3306.
+
+Make sure that there is a MySQL server running on the machine/port you are trying to connect to and that the machine this software is running on is able to connect to this host/port (i.e. not firewalled). Also make sure that the server has not been started with the --skip-networking flag.
+
+" tn="BBDD 1-1" dt="text" de="UTF-8" by="0" sc="1" ec="1" ng="1" na="1" hn="Wuera">
+  <responseHeader class="java.lang.String"></responseHeader>
+  <requestHeader class="java.lang.String"></requestHeader>
+  <responseData class="java.lang.String"></responseData>
+  <responseFile class="java.lang.String"></responseFile>
+  <samplerData class="java.lang.String">[Select Statement] Select * from test
+
+</samplerData>
+</sample>
+<sample t="36" it="0" lt="36" ts="1332719981093" s="false" lb="delete" rc="08S01 0" rm="com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException: Cannot connect to MySQL server on localhost:3306.
+
+Make sure that there is a MySQL server running on the machine/port you are trying to connect to and that the machine this software is running on is able to connect to this host/port (i.e. not firewalled). Also make sure that the server has not been started with the --skip-networking flag.
+
+" tn="BBDD 1-1" dt="text" de="UTF-8" by="0" sc="1" ec="1" ng="1" na="1" hn="Wuera">
+  <responseHeader class="java.lang.String"></responseHeader>
+  <requestHeader class="java.lang.String"></requestHeader>
+  <responseData class="java.lang.String"></responseData>
+  <responseFile class="java.lang.String"></responseFile>
+  <samplerData class="java.lang.String">[Prepared Update Statement] delete from test
+
+</samplerData>
+</sample>
+
+</testResults>

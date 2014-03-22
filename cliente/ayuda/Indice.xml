@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='ISO-8859-1'  ?>
+<!DOCTYPE index
+  PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Index Version 1.0//EN"
+         "http://java.sun.com/products/javahelp/index_1_0.dtd">
+<index version="1.0">
+  <indexitem text="Sistema de Registro" target="introduccion"/>
+  
+  <indexitem text="Roles">
+	<indexitem text="Administrador" target="administrador"/>
+	<indexitem text="RRHH" target="rrhh"/>	
+	<indexitem text="Trabajador" target="trabajador"/>
+	<indexitem text="Gerente" target="gerente"/>
+  </indexitem>
+  
+  <indexitem text="Registros">
+	<indexitem text="Automático" target="automatico"/>
+	<indexitem text="General" target="general"/>
+	<indexitem text="Específico" target="especifico"/>
+	
+	<indexitem text="Listas">
+		<indexitem text="Documentación Vinculada" target="documentacion"/>
+		<indexitem text="Documentación Trabajador" target="documentacionT"/>
+		<indexitem text="Información Resúmen" target="campos"/>
+		<indexitem text="Indicadores" target="indicadores"/>
+		<indexitem text="Personas Generadoras" target="generadores"/>
+		<indexitem text="Personas Autorizadas" target="autorizados"/>
+	</indexitem>
+  </indexitem>
+  
+  <indexitem text="Explorador de Registros">
+	<indexitem text="Visor de Eventos" target="visor"/>
+  </indexitem>
+  
+</index>

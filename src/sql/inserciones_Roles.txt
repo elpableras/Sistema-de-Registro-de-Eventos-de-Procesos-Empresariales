@@ -1,0 +1,4 @@
+INSERT INTO roles (id,usuario,password,tipo) VALUES (null,AES_ENCRYPT('Admin','@pass'),AES_ENCRYPT('admin','@pass'),'A'),(null,AES_ENCRYPT('Gerente','@pass'),AES_ENCRYPT('gerente','@pass'),'P'),(null,AES_ENCRYPT('RRHH','@pass'), AES_ENCRYPT('rrhh','@pass'),'P');
+
+INSERT INTO correo (usuario,password) VALUES (AES_ENCRYPT('pabloglezj@gma
+il.com','@pass'),AES_ENCRYPT('71660136','@pass')));

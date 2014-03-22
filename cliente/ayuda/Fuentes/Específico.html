@@ -1,0 +1,99 @@
+<HTML>
+	<HEAD>
+            <TITLE> Información Específico </TITLE>
+    </HEAD>
+
+		<BODY>
+			<H1> <FONT Color=blue> Registro Específico </Font> </H1>
+
+			<P>Muestra la <I>información específica</I> de cada registro de estas características:</P>
+
+			<table border = "1">
+				<CAPTION> <B>Registro Específico contiene</B> </CAPTION>
+				<tr>
+					<th>Código interno de proceso</th>
+					<td>
+						<P>Cada vez que se genera un proceso éste debe ser identificado para diferenciarlo del mismo tipo de proceso de otros expedientes<BR> 
+						   o ejecuciones del procedimiento.</P> 
+						<P>El código del proceso tendrá la siguiente estructura:</P>
+						<P><B>AAAAMMDD-HHMMSS-rrrrrr</B></P>
+						<P>Donde:</P>
+						
+						<UL>
+							<LI> <B>AAAAMMDD</B> - Fecha en que se genera
+							<LI> <B>HHMMSS</B> - Hora en que se genera
+							<LI> <B>RRRRRR</B> - Número correlativo de seis cifras que guarda la secuencia de generación de procesos.<BR> 
+											     Este número será correlativo a todos los procesos que se generan, de manera que guarden<BR> 
+												 la secuencia de generación de los procesos sean del tipo que sean.
+						</UL>
+					</td>
+				</tr>
+				
+				<tr>
+					<th>Código de procedimiento</th>
+						<td>
+							<P> Código del primer proceso (<I>proceso 0 del procedimiento</I>, que siempre existe en todo procedimiento y que se genera<BR> 
+								cuando se inicia una instancia del procedimiento).
+								Este número de proceso definirá la trazabilidad hacia adelante y hacia atrás dentro de un procedimiento.</P></td>
+				</tr>
+				
+				<tr>
+					<th>Cod. Contratación</th>
+						<td>En este caso será el código único para cada trabajador cuando sea agregado a la empresa.</td>
+				</tr>
+		
+				<tr>
+					<th><A NAME="docu"> Documentación Vinculada </A></th>
+					<td>
+						<P>Lista de documentos (físicos o digitales) relacionados con el proceso.</P>
+						<OL TYPE = a>
+							<LI> Código de documento o enlace al mismo si es digital
+							<LI> Tipo y descripción del tipo de documento
+						</OL>
+						
+						<P>Si la lista de documentos es fija, la descripción de los mismos [b)] iría a este nivel,<BR> 
+						si depende de los datos que se generan en el evento en que se produce el proceso, irán en el atributo [3] del proceso especifico.</P>
+						
+						<P>Nota:<BR>
+							Recomendamos todos los procesos digitales. Y si el proceso es papel, se genera un proceso digital que referencia al de documento.
+						</P>
+					</td>
+				</tr>
+				
+				<tr>
+				<th>Generador del Proceso</th>
+				<td>
+					<P>Persona o empresa externa o sistema que genera el proceso.</P>
+					<P>Esta información podría estar a nivel de proceso específico si puede variar el agente que genera el proceso [4].<BR> 
+					 Lo habitual es que sea siempre el generador de proceso sea siempre mismo y este a este nivel.</P>
+				</td>
+			</tr>
+			
+			<tr>
+				<th>Autorizados para su consulta</th>
+				<td>
+					<P>Persona, empresa externa o sistema autorizados para la consulta del proceso.</P>
+					<P>Esta información podría estar a nivel de proceso específico si puede variar el/los agente/s que consulta/n el proceso [5].<BR> 
+					Lo habitual es que sea siempre el mismo y este a este nivel.</P>
+				</td>
+			</tr>
+			
+			</table>
+			
+			<BR><HR>
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tbody>
+					<tr>
+						<td class="siganterior" width="1"><a href="General.html"><img src="../Img/Atras.png" border="0"></a></td>
+						<td class="siganterior" width="50%"><b>Ir a</b> <A href="General.html"><B>General</B></A></td>
+						
+						<td width="8"></td>
+						
+						<td class="siganterior" align="right" width="50%"><b>Ir a</b> <A href="Introducción.html"><B>Visor</B></A></td>
+						<td width="1"><a href="Introducción.html"><img src="../Img/Home.png" border="0"></a></td>
+					</tr>
+				</tbody>
+			</table>	
+        </BODY>
+
+</HTML>

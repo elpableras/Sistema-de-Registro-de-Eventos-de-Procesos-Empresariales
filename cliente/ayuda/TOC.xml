@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<!DOCTYPE toc
+  PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp TOC Version 1.0//EN"
+         "http://java.sun.com/products/javahelp/toc_1_0.dtd">
+
+<toc version="1.0">
+  <tocitem text="Sistema de Registro" target="introduccion"/>
+
+  <tocitem text="Roles">
+
+  	<tocitem text="Administrador" target="administrador"/>	
+	<tocitem text="RRHH" target="rrhh"/>
+  	<tocitem text="Trabajador" target="trabajador"/>
+  	<tocitem text="Gerente" target="gerente"/>
+
+  </tocitem>  
+  
+  <tocitem text="Registros">
+
+	<tocitem text="Automático" target="automatico"/>
+  	<tocitem text="General" target="general"/>	
+	<tocitem text="Específico" target="especifico"/>
+	
+	<tocitem text="Listas">
+	
+		<tocitem text="Documentación Vinculada" target="documentacion"/>
+		<tocitem text="Documentación Trabajador" target="documentacionT"/>
+		<tocitem text="Información Resúmen" target="campos"/>
+		<tocitem text="Indicadores" target="indicadores"/>
+		<tocitem text="Personas Generadoras" target="generadores"/>
+		<tocitem text="Personas Autorizadas" target="autorizados"/>
+		
+	</tocitem>
+
+  </tocitem>
+  
+  <tocitem text="Explorador de Registros">
+	<tocitem text="Visor de Eventos" target="visor"/>
+  </tocitem>
+	
+</toc>
+
+

@@ -1,0 +1,120 @@
+<HTML>
+	<HEAD>
+            <TITLE> Pantalla del Visor de Eventos </TITLE>
+    </HEAD>
+
+    <BODY>
+        <H1> <FONT Color=blue> Visor de Eventos </Font> </H1>
+
+        <P> La pantalla del <B>Visor de Eventos</B> está dividida en varias secciones: </P>
+		
+			<OL>
+				<LI> <a href="#tree"> Árbol de los Procesos Almacenados </a> </LI>
+				<LI> <a href="#filt"> Filtros para los Procesos </a> </LI>
+				<LI> <a href="#info"> Información sobre el Proceso Seleccionado </a> </LI>
+				<LI> <a href="#enla"> Enlace de Documentos </a> </LI>
+				<LI> <a href="#enla"> Barra Estado </a> </LI>				
+			</OL>
+			
+			<IMG SRC="../Img/Pantallas/Visor/Pantalla.png"/>
+			
+			<BR>
+			
+		<H2> <a name="tree"> Árbol </a> </H2>	
+		
+		<IMG SRC="../Img/Pantallas/Visor/Árbol.png"/>
+		
+		<P> En esta sección nos mostrara en forma de árbol todos aquellos procesos que tenga en la <I> BBDD </I> desde el número de proceso el tipo que es y lo que contiene, dependiendo el filtro que hayamos elegido tendrá unos u otros.<BR> 
+			Seleccionando los procesos o sus listas tendremos su información en la pantalla de abajo donde nos mostrara los datos almacenados de esos procesos. </P>
+		
+		<H2> <a name="filt"> Filtros </a> </H2>	
+		<P> Los filtros, como dice la palabra nos filtraran los resultados para verlo en el árbol, dependiendo lo que seleccionemos aquí, es lo que se verá en el listado de procesos en árbol. </P>
+		
+			<OL>
+				<LI> <a href="#tipo"> Tipo </a> </LI>
+				<LI> <a href="#gene"> General </a> </LI>
+				<LI> <a href="#espe"> Específico </a> </LI>
+			</OL>
+			
+			<H3> <a name="tipo"> Tipo </a> </H3>
+			
+			<P> Podemos filtrar los resultados, utilizando este filtro que nos mostrara:
+			
+				<UL>
+					<LI> <I>"Todos"</I>
+					<LI> Solo los <I>"Generales"</I>
+					<LI> Solo los <I>"Específicos"</I>
+				</UL>
+			</P>
+			
+			<IMG SRC="../Img/Pantallas/Visor/Filtros.png"/>
+			
+			<H3> <a name="gene"> General </a> </H3>
+			
+			<P> Este solo se activara cuando estén seleccionados los procesos <I>Generales</I>, pudiendo filtrarlos por: </P>
+			
+				<OL TYPE = a>
+					<LI> <I>Cód. General</I>  </LI>
+					<OL TYPE = I>
+							<LI><I>Ascendente</I>
+							<LI><I>Descendente</I> </LI>
+					</OL>
+				</OL>
+				
+				<IMG SRC="../Img/Pantallas/Visor/FiltrosGene.png"/>
+			
+			<H3> <a name="espe"> Específico </a> </H3>
+			
+			<P> Este solo se activara cuando estén seleccionados los procesos <I>Específicos</I>, pudiendo filtrarlos por: </P>
+			
+				<OL TYPE = a>
+					<LI> <I>Trabajador</I> </LI>
+					<LI> <I>Fecha</I>:
+						<OL TYPE = I>
+							<LI><I>Ascendente</I>
+							<LI><I>Descendente</I> </LI>
+						</OL>
+				</OL>
+				
+				<IMG SRC="../Img/Pantallas/Visor/FiltrosEspe.png"/>
+		
+		<H2> <a name="info"> Información Proceso </a> </H2>	
+		
+		<P> Aquí se mostrara la información del proceso seleccionado en el <I>Árbol</I>, si tuvieras algún enlace, a algún documentos lo veríamos en <I>"Enlaces Documentos"</I></P>
+		
+		<IMG SRC="../Img/Pantallas/Visor/Info.png"/>
+		
+		<H2> <a name="enla"> Enlace Documentos </a> </H2>	
+		<P> En el <I>Enlace Documentos</I>, nos aparecerá una lista con los documentos que se insertaron en el proceso de almacenamiento, sino tiene 
+			ninguno, no se mostrará ninguno tampoco. Para abrir el documento, seleccionaremos el enlace y pulsaremos sobre el botón <I>"Abrir Documento"</I>, 
+			la aplicación lo abrirá con el programa correspondiente y se lo mostrara al <I> Cliente </I>.
+		</P>		
+		
+		<IMG SRC="../Img/Pantallas/Visor/Enlace.png"/>
+		
+		<P>Por último tiene el botón de <I>"Salir"</I>, que como dice la palabra sale de la aplicación. </P>
+		
+		<H2> <a name="info"> Barra Estado </a> </H2>	
+		
+		<P> En esta sección es donde aparecerán los mensajes de las operaciones que se vayan realizando. </P>
+		
+			<P align = left> <IMG SRC="../Img/Pantallas/Visor/BarraEstado.png"/> </P>
+		
+		<BR><HR>
+		<table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tbody>
+				<tr>
+					<td class="siganterior" width="1"><a href="Administrador.html"><img src="../Img/Atras.png" border="0"></a></td>
+					<td class="siganterior" width="50%"><b>Ir a</b> <A href="Administrador.html"><B>Administrador</B></A></td>
+					
+					<td width="8"></td>
+					
+					<td class="siganterior" align="right" width="50%"><b>Ir a</b> <A href="Introducción.html"><B>Inicio</B></A></td>
+					<td width="1"><a href="Introducción.html"><img src="../Img/Home.png" border="0"></a></td>
+				</tr>
+			</tbody>	
+		</table>	
+    </BODY>
+
+
+</HTML>

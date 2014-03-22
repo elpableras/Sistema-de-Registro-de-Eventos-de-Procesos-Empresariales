@@ -1,0 +1,865 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:ns="http://servidor.ws.com" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ax21="http://dato.servidor.ws.com/xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://servidor.ws.com">
+    <wsp:Policy xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="SecConvPolicy">
+        <wsp:ExactlyOne>
+            <wsp:All>
+                <sp:SymmetricBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+                    <wsp:Policy>
+                        <sp:ProtectionToken>
+                            <wsp:Policy>
+                                <sp:SecureConversationToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+                                    <wsp:Policy>
+                                        <sp:RequireDerivedKeys/>
+                                        <sp:BootstrapPolicy>
+                                            <wsp:Policy>
+                                                <sp:EncryptedParts>
+                                                    <sp:Body/>
+                                                </sp:EncryptedParts>
+                                                <sp:SymmetricBinding>
+                                                    <wsp:Policy>
+                                                        <sp:ProtectionToken>
+                                                            <wsp:Policy>
+                                                                <sp:X509Token sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/Never">
+                                                                    <wsp:Policy>
+                                                                        <sp:RequireThumbprintReference/>
+                                                                        <sp:WssX509V3Token10/>
+                                                                        <sp:RequireDerivedKeys/>
+                                                                    </wsp:Policy>
+                                                                </sp:X509Token>
+                                                            </wsp:Policy>
+                                                        </sp:ProtectionToken>
+                                                        <sp:AlgorithmSuite>
+                                                            <wsp:Policy>
+                                                                <sp:Basic128Rsa15/>
+                                                            </wsp:Policy>
+                                                        </sp:AlgorithmSuite>
+                                                        <sp:Layout>
+                                                            <wsp:Policy>
+                                                                <sp:Strict/>
+                                                            </wsp:Policy>
+                                                        </sp:Layout>
+                                                        <sp:IncludeTimestamp/>
+                                                        <sp:EncryptSignature/>
+                                                        <sp:OnlySignEntireHeadersAndBody/>
+                                                    </wsp:Policy>
+                                                </sp:SymmetricBinding>
+                                                <sp:EndorsingSupportingTokens>
+                                                    <wsp:Policy>
+                                                        <sp:X509Token sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+                                                            <wsp:Policy>
+                                                                <sp:RequireThumbprintReference/>
+                                                                <sp:WssX509V3Token10/>
+                                                            </wsp:Policy>
+                                                        </sp:X509Token>
+                                                    </wsp:Policy>
+                                                </sp:EndorsingSupportingTokens>
+                                                <sp:Wss11>
+                                                    <sp:Policy>
+                                                        <sp:MustSupportRefKeyIdentifier/>
+                                                        <sp:MustSupportRefIssuerSerial/>
+                                                        <sp:MustSupportRefThumbprint/>
+                                                        <sp:RequireSignatureConfirmation/>
+                                                    </sp:Policy>
+                                                </sp:Wss11>
+                                                <sp:Trust10>
+                                                    <wsp:Policy>
+                                                        <sp:RequireClientEntropy/>
+                                                        <sp:RequireServerEntropy/>
+                                                        <sp:MustSupportIssuedTokens/>
+                                                    </wsp:Policy>
+                                                </sp:Trust10>
+                                            </wsp:Policy>
+                                        </sp:BootstrapPolicy>
+                                    </wsp:Policy>
+                                </sp:SecureConversationToken>
+                            </wsp:Policy>
+                        </sp:ProtectionToken>
+                        <sp:AlgorithmSuite>
+                            <wsp:Policy>
+                                <sp:Basic128Rsa15/>
+                            </wsp:Policy>
+                        </sp:AlgorithmSuite>
+                        <sp:Layout>
+                            <wsp:Policy>
+                                <sp:Strict/>
+                            </wsp:Policy>
+                        </sp:Layout>
+                        <sp:IncludeTimestamp/>
+                        <sp:EncryptSignature/>
+                        <sp:OnlySignEntireHeadersAndBody/>
+                    </wsp:Policy>
+                </sp:SymmetricBinding>
+                <sp:Wss11 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+                    <sp:Policy>
+                        <sp:MustSupportRefKeyIdentifier/>
+                        <sp:MustSupportRefIssuerSerial/>
+                        <sp:MustSupportRefThumbprint/>
+                    </sp:Policy>
+                </sp:Wss11>
+                <sp:Trust10 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+                    <wsp:Policy>
+                        <sp:RequireClientEntropy/>
+                        <sp:RequireServerEntropy/>
+                        <sp:MustSupportIssuedTokens/>
+                    </wsp:Policy>
+                </sp:Trust10>
+                <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+                    <sp:Body/>
+                </sp:EncryptedParts>
+            </wsp:All>
+        </wsp:ExactlyOne>
+    </wsp:Policy>
+    <wsdl:documentation>Proyecto</wsdl:documentation>
+    <wsdl:types>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://dato.servidor.ws.com/xsd">
+            <xs:complexType name="RegistroEspeS">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="c_Contra" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="c_Interno" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="c_Proce" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="codGeneral" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="indexacion" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ListaDocumentoS">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="codigo" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="enlace" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="tipoDescripcion" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ListaGeneradorS">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="codigo" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="generador" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ListaAutorizadoS">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="autorizado" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="codigo" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="RegistroAdminS">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="acti" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="almacen" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="archivo" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="codGeneral" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="codProce" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="conservacion" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="descri" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="dispo" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="frecu" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="meto" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="modi" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="nombre" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="retencion" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="tipo" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ListaCampoS">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="codRegistro" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="descripcion" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="enlace" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="nombre" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="tipo" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="unidad" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ListaIndicadorS">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="codRegistro" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="indicador" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema xmlns:ax22="http://dato.servidor.ws.com/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://servidor.ws.com">
+            <xs:import namespace="http://dato.servidor.ws.com/xsd"/>
+            <xs:element name="setRegistroEspe">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="res" nillable="true" type="ax22:RegistroEspeS"/>
+                        <xs:element minOccurs="0" name="d" nillable="true" type="ax22:ListaDocumentoS"/>
+                        <xs:element minOccurs="0" name="g" nillable="true" type="ax22:ListaGeneradorS"/>
+                        <xs:element minOccurs="0" name="a" nillable="true" type="ax22:ListaAutorizadoS"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="setRegistroEspeResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="setRegistroAuto">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="reg" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="setRegistroAutoResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="setRegistroAdmin">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="ras" nillable="true" type="ax22:RegistroAdminS"/>
+                        <xs:element minOccurs="0" name="d" nillable="true" type="ax22:ListaDocumentoS"/>
+                        <xs:element minOccurs="0" name="c" nillable="true" type="ax22:ListaCampoS"/>
+                        <xs:element minOccurs="0" name="i" nillable="true" type="ax22:ListaIndicadorS"/>
+                        <xs:element minOccurs="0" name="g" nillable="true" type="ax22:ListaGeneradorS"/>
+                        <xs:element minOccurs="0" name="a" nillable="true" type="ax22:ListaAutorizadoS"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="setRegistroAdminResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getRegistroEspe">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="codGeneral" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getRegistroEspeResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getRegistroAdmin">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="proce" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getRegistroAdminResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getProcedimientoResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getPasoAnte">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="codGeneralAnte" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="codGeneral" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getPasoAnteResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:complexType name="Exception">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Exception" nillable="true" type="xs:anyType"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="Exception">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="Exception" nillable="true" type="ns:Exception"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getNumRegistro">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="proce" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getNumRegistroResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getListaCodGenerales">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="proce" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getListaCodGeneralesResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getContratoTrabajador">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="rol" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="codGeneralAnte" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getContratoTrabajadorResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getCodContrato">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="proce" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getCodContratoResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="comprobarRol">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="iden" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="pass" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="rol" type="xs:boolean"/>
+                        <xs:element minOccurs="0" name="tipo" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="comprobarRolResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="getPasoAnteRequest">
+        <wsdl:part name="parameters" element="ns:getPasoAnte"/>
+    </wsdl:message>
+    <wsdl:message name="getPasoAnteResponse">
+        <wsdl:part name="parameters" element="ns:getPasoAnteResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getCodContratoRequest">
+        <wsdl:part name="parameters" element="ns:getCodContrato"/>
+    </wsdl:message>
+    <wsdl:message name="getCodContratoResponse">
+        <wsdl:part name="parameters" element="ns:getCodContratoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="Exception">
+        <wsdl:part name="parameters" element="ns:Exception"/>
+    </wsdl:message>
+    <wsdl:message name="setRegistroAutoRequest">
+        <wsdl:part name="parameters" element="ns:setRegistroAuto"/>
+    </wsdl:message>
+    <wsdl:message name="setRegistroAutoResponse">
+        <wsdl:part name="parameters" element="ns:setRegistroAutoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getProcedimientoRequest"/>
+    <wsdl:message name="getProcedimientoResponse">
+        <wsdl:part name="parameters" element="ns:getProcedimientoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="setRegistroEspeRequest">
+        <wsdl:part name="parameters" element="ns:setRegistroEspe"/>
+    </wsdl:message>
+    <wsdl:message name="setRegistroEspeResponse">
+        <wsdl:part name="parameters" element="ns:setRegistroEspeResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getContratoTrabajadorRequest">
+        <wsdl:part name="parameters" element="ns:getContratoTrabajador"/>
+    </wsdl:message>
+    <wsdl:message name="getContratoTrabajadorResponse">
+        <wsdl:part name="parameters" element="ns:getContratoTrabajadorResponse"/>
+    </wsdl:message>
+    <wsdl:message name="comprobarRolRequest">
+        <wsdl:part name="parameters" element="ns:comprobarRol"/>
+    </wsdl:message>
+    <wsdl:message name="comprobarRolResponse">
+        <wsdl:part name="parameters" element="ns:comprobarRolResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getRegistroAdminRequest">
+        <wsdl:part name="parameters" element="ns:getRegistroAdmin"/>
+    </wsdl:message>
+    <wsdl:message name="getRegistroAdminResponse">
+        <wsdl:part name="parameters" element="ns:getRegistroAdminResponse"/>
+    </wsdl:message>
+    <wsdl:message name="setRegistroAdminRequest">
+        <wsdl:part name="parameters" element="ns:setRegistroAdmin"/>
+    </wsdl:message>
+    <wsdl:message name="setRegistroAdminResponse">
+        <wsdl:part name="parameters" element="ns:setRegistroAdminResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getListaCodGeneralesRequest">
+        <wsdl:part name="parameters" element="ns:getListaCodGenerales"/>
+    </wsdl:message>
+    <wsdl:message name="getListaCodGeneralesResponse">
+        <wsdl:part name="parameters" element="ns:getListaCodGeneralesResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getRegistroEspeRequest">
+        <wsdl:part name="parameters" element="ns:getRegistroEspe"/>
+    </wsdl:message>
+    <wsdl:message name="getRegistroEspeResponse">
+        <wsdl:part name="parameters" element="ns:getRegistroEspeResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getNumRegistroRequest">
+        <wsdl:part name="parameters" element="ns:getNumRegistro"/>
+    </wsdl:message>
+    <wsdl:message name="getNumRegistroResponse">
+        <wsdl:part name="parameters" element="ns:getNumRegistroResponse"/>
+    </wsdl:message>
+    <wsdl:portType xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" name="ProyectoPortType" wsp:PolicyURIs="#SecConvPolicy">
+        <wsdl:operation name="getPasoAnte">
+            <wsdl:input message="ns:getPasoAnteRequest" wsaw:Action="urn:getPasoAnte"/>
+            <wsdl:output message="ns:getPasoAnteResponse" wsaw:Action="urn:getPasoAnteResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getCodContrato">
+            <wsdl:input message="ns:getCodContratoRequest" wsaw:Action="urn:getCodContrato"/>
+            <wsdl:output message="ns:getCodContratoResponse" wsaw:Action="urn:getCodContratoResponse"/>
+            <wsdl:fault message="ns:Exception" name="Exception" wsaw:Action="urn:getCodContratoException"/>
+        </wsdl:operation>
+        <wsdl:operation name="setRegistroAuto">
+            <wsdl:input message="ns:setRegistroAutoRequest" wsaw:Action="urn:setRegistroAuto"/>
+            <wsdl:output message="ns:setRegistroAutoResponse" wsaw:Action="urn:setRegistroAutoResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getProcedimiento">
+            <wsdl:input message="ns:getProcedimientoRequest" wsaw:Action="urn:getProcedimiento"/>
+            <wsdl:output message="ns:getProcedimientoResponse" wsaw:Action="urn:getProcedimientoResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="setRegistroEspe">
+            <wsdl:input message="ns:setRegistroEspeRequest" wsaw:Action="urn:setRegistroEspe"/>
+            <wsdl:output message="ns:setRegistroEspeResponse" wsaw:Action="urn:setRegistroEspeResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getContratoTrabajador">
+            <wsdl:input message="ns:getContratoTrabajadorRequest" wsaw:Action="urn:getContratoTrabajador"/>
+            <wsdl:output message="ns:getContratoTrabajadorResponse" wsaw:Action="urn:getContratoTrabajadorResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="comprobarRol">
+            <wsdl:input message="ns:comprobarRolRequest" wsaw:Action="urn:comprobarRol"/>
+            <wsdl:output message="ns:comprobarRolResponse" wsaw:Action="urn:comprobarRolResponse"/>
+            <wsdl:fault message="ns:Exception" name="Exception" wsaw:Action="urn:comprobarRolException"/>
+        </wsdl:operation>
+        <wsdl:operation name="getRegistroAdmin">
+            <wsdl:input message="ns:getRegistroAdminRequest" wsaw:Action="urn:getRegistroAdmin"/>
+            <wsdl:output message="ns:getRegistroAdminResponse" wsaw:Action="urn:getRegistroAdminResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="setRegistroAdmin">
+            <wsdl:input message="ns:setRegistroAdminRequest" wsaw:Action="urn:setRegistroAdmin"/>
+            <wsdl:output message="ns:setRegistroAdminResponse" wsaw:Action="urn:setRegistroAdminResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getListaCodGenerales">
+            <wsdl:input message="ns:getListaCodGeneralesRequest" wsaw:Action="urn:getListaCodGenerales"/>
+            <wsdl:output message="ns:getListaCodGeneralesResponse" wsaw:Action="urn:getListaCodGeneralesResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getRegistroEspe">
+            <wsdl:input message="ns:getRegistroEspeRequest" wsaw:Action="urn:getRegistroEspe"/>
+            <wsdl:output message="ns:getRegistroEspeResponse" wsaw:Action="urn:getRegistroEspeResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getNumRegistro">
+            <wsdl:input message="ns:getNumRegistroRequest" wsaw:Action="urn:getNumRegistro"/>
+            <wsdl:output message="ns:getNumRegistroResponse" wsaw:Action="urn:getNumRegistroResponse"/>
+            <wsdl:fault message="ns:Exception" name="Exception" wsaw:Action="urn:getNumRegistroException"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="ProyectoSoap11Binding" type="ns:ProyectoPortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="getPasoAnte">
+            <soap:operation soapAction="urn:getPasoAnte" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setRegistroAuto">
+            <soap:operation soapAction="urn:setRegistroAuto" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getCodContrato">
+            <soap:operation soapAction="urn:getCodContrato" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="Exception">
+                <soap:fault use="literal" name="Exception"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getProcedimiento">
+            <soap:operation soapAction="urn:getProcedimiento" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setRegistroEspe">
+            <soap:operation soapAction="urn:setRegistroEspe" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getContratoTrabajador">
+            <soap:operation soapAction="urn:getContratoTrabajador" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="comprobarRol">
+            <soap:operation soapAction="urn:comprobarRol" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="Exception">
+                <soap:fault use="literal" name="Exception"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getRegistroAdmin">
+            <soap:operation soapAction="urn:getRegistroAdmin" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setRegistroAdmin">
+            <soap:operation soapAction="urn:setRegistroAdmin" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getListaCodGenerales">
+            <soap:operation soapAction="urn:getListaCodGenerales" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getRegistroEspe">
+            <soap:operation soapAction="urn:getRegistroEspe" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getNumRegistro">
+            <soap:operation soapAction="urn:getNumRegistro" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="Exception">
+                <soap:fault use="literal" name="Exception"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="ProyectoSoap12Binding" type="ns:ProyectoPortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="getPasoAnte">
+            <soap12:operation soapAction="urn:getPasoAnte" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setRegistroAuto">
+            <soap12:operation soapAction="urn:setRegistroAuto" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getCodContrato">
+            <soap12:operation soapAction="urn:getCodContrato" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="Exception">
+                <soap12:fault use="literal" name="Exception"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getProcedimiento">
+            <soap12:operation soapAction="urn:getProcedimiento" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setRegistroEspe">
+            <soap12:operation soapAction="urn:setRegistroEspe" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getContratoTrabajador">
+            <soap12:operation soapAction="urn:getContratoTrabajador" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="comprobarRol">
+            <soap12:operation soapAction="urn:comprobarRol" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="Exception">
+                <soap12:fault use="literal" name="Exception"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getRegistroAdmin">
+            <soap12:operation soapAction="urn:getRegistroAdmin" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setRegistroAdmin">
+            <soap12:operation soapAction="urn:setRegistroAdmin" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getListaCodGenerales">
+            <soap12:operation soapAction="urn:getListaCodGenerales" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getRegistroEspe">
+            <soap12:operation soapAction="urn:getRegistroEspe" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getNumRegistro">
+            <soap12:operation soapAction="urn:getNumRegistro" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="Exception">
+                <soap12:fault use="literal" name="Exception"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="ProyectoHttpBinding" type="ns:ProyectoPortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="getPasoAnte">
+            <http:operation location="Proyecto/getPasoAnte"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="getPasoAnte"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="getPasoAnte"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setRegistroAuto">
+            <http:operation location="Proyecto/setRegistroAuto"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="setRegistroAuto"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="setRegistroAuto"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getCodContrato">
+            <http:operation location="Proyecto/getCodContrato"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="getCodContrato"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="getCodContrato"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getProcedimiento">
+            <http:operation location="Proyecto/getProcedimiento"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="getProcedimiento"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="getProcedimiento"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setRegistroEspe">
+            <http:operation location="Proyecto/setRegistroEspe"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="setRegistroEspe"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="setRegistroEspe"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getContratoTrabajador">
+            <http:operation location="Proyecto/getContratoTrabajador"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="getContratoTrabajador"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="getContratoTrabajador"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="comprobarRol">
+            <http:operation location="Proyecto/comprobarRol"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="comprobarRol"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="comprobarRol"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getRegistroAdmin">
+            <http:operation location="Proyecto/getRegistroAdmin"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="getRegistroAdmin"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="getRegistroAdmin"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setRegistroAdmin">
+            <http:operation location="Proyecto/setRegistroAdmin"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="setRegistroAdmin"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="setRegistroAdmin"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getListaCodGenerales">
+            <http:operation location="Proyecto/getListaCodGenerales"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="getListaCodGenerales"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="getListaCodGenerales"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getRegistroEspe">
+            <http:operation location="Proyecto/getRegistroEspe"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="getRegistroEspe"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="getRegistroEspe"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getNumRegistro">
+            <http:operation location="Proyecto/getNumRegistro"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="getNumRegistro"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="getNumRegistro"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="Proyecto">
+        <wsdl:port name="ProyectoHttpSoap11Endpoint" binding="ns:ProyectoSoap11Binding">
+            <soap:address location="http://localhost:8080/axis2/services/Proyecto.ProyectoHttpSoap11Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="ProyectoHttpsSoap11Endpoint" binding="ns:ProyectoSoap11Binding">
+            <soap:address location="https://localhost:8443/axis2/services/Proyecto.ProyectoHttpsSoap11Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="ProyectoHttpsSoap12Endpoint" binding="ns:ProyectoSoap12Binding">
+            <soap12:address location="https://localhost:8443/axis2/services/Proyecto.ProyectoHttpsSoap12Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="ProyectoHttpSoap12Endpoint" binding="ns:ProyectoSoap12Binding">
+            <soap12:address location="http://localhost:8080/axis2/services/Proyecto.ProyectoHttpSoap12Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="ProyectoHttpEndpoint" binding="ns:ProyectoHttpBinding">
+            <http:address location="http://localhost:8080/axis2/services/Proyecto.ProyectoHttpEndpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="ProyectoHttpsEndpoint" binding="ns:ProyectoHttpBinding">
+            <http:address location="https://localhost:8443/axis2/services/Proyecto.ProyectoHttpsEndpoint/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

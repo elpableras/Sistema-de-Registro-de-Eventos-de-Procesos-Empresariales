@@ -1,0 +1,9 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://servidor.ws.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:infoRegistro>
+         <!--Optional:-->
+         <ser:id>666</ser:id>
+      </ser:infoRegistro>
+   </soapenv:Body>
+</soapenv:Envelope>

@@ -1,0 +1,11 @@
+mysql --ssl-ca=C:\Program Files\MySQL\MySQL Server 5.1\bin\cert\ca-cert.pem --ssl-cert=C:\Program Files\MySQL\MySQL Server 5.1\bin\cert\cliente-cert.pem --ssl-key=C:\Program Files\MySQL\MySQL Server 5.1\bin\cert\cliente-key.pem -u rootssl
+
+ACORDARSE DE STOP Y START PARA ACTUALIZAR
+net start mysql
+
+mysqld --ssl-ca=cacert.pem --ssl-cert=server-cert.pem --ssl-key=server-key.pem
+
+mysql --ssl-ca=cacert.pem --ssl-cert=cliente-cert.pem --ssl-key=cliente-key.pem -u rootssl -p
+
+show variables like "%openssl%";
+

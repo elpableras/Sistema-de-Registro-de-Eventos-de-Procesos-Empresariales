@@ -1,0 +1,9 @@
+SET JRE_HOME=C:\Program Files\Java\jdk1.6.0_25
+SET JAVA_HOME=C:\Program Files\Java\jdk1.6.0_25
+SET CATALINA_HOME=C:\apache-tomcat-7.0.21
+SET AXIS2_HOME=C:\axis2-1.5.5
+SET PATH=C:\axis2-1.5.5\bin
+
+http://localhost:8080/axis2/services/EchoService?wsdl
+
+http://localhost:8080/axis2/services/ServicioRegistro?wsdl

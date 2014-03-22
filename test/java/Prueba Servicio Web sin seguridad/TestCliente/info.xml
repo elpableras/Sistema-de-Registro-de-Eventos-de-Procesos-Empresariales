@@ -1,0 +1,16 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://servidor.ws.com" xmlns:xsd="http://servidor.ws.com/xsd">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:info>
+         <!--Optional:-->
+         <ser:r>
+            <!--Optional:-->
+            <xsd:descripcion>La vida de Baal Zebub</xsd:descripcion>
+            <!--Optional:-->
+            <xsd:id>666</xsd:id>
+            <!--Optional:-->
+            <xsd:persona>Abraracurcix</xsd:persona>
+         </ser:r>
+      </ser:info>
+   </soapenv:Body>
+</soapenv:Envelope>

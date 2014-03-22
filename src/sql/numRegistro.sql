@@ -1,0 +1,1 @@
+CREATE TABLE numRegistro (registro int NOT NULL, proceso VARCHAR(6) NOT NULL PRIMARY KEY);
